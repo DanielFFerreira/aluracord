@@ -1,4 +1,6 @@
 import { Box, Button, Text, TextField, Image } from "@skynexui/components";
+import React from "react";
+import { useRouter } from 'next/router';
 import appConfig from "../config.json";
 
 function GlobalStyle() {
@@ -61,7 +63,11 @@ function Titulo(props) {
 // export default HomePage
 
 export default function PaginaInicial() {
-	const username = "Daniel";
+	// const username = "Daniel";
+	const [username, setusername] = React.useState('');
+	const roteamento = useRouter();
+
+	console.log(roteamento);
 
 	return (
 		<>
@@ -100,6 +106,10 @@ export default function PaginaInicial() {
 					{/* Formulário */}
 					<Box
 						as="form"
+						onSubmit={function(infoEvento) {
+							infoEvento.preventDefault();
+							console.log('Alguém submeteu esse form');
+						}}
 						styleSheet={{
 							display: "flex",
 							flexDirection: "column",
@@ -121,7 +131,21 @@ export default function PaginaInicial() {
 							{appConfig.name}
 						</Text>
 
+						{/* <input
+							type="text"
+							value={username}
+							onChange={function handler(event) {
+								const valor = event.target.value;
+								setusername(valor);
+							}}
+						/> */}
+
 						<TextField
+							value={username}
+							onChange={function handler(event) {
+								const valor = event.target.value;
+								setusername(valor);
+							}}
 							fullWidth
 							textFieldColors={{
 								neutral: {
@@ -132,6 +156,7 @@ export default function PaginaInicial() {
 								},
 							}}
 						/>
+
 						<Button
 							type="submit"
 							label="Entrar"
@@ -167,7 +192,7 @@ export default function PaginaInicial() {
 								borderRadius: "50%",
 								marginBottom: "16px",
 							}}
-							src={`https://avatars.githubusercontent.com/u/50724196?v=4`}
+							src={`https://github.com/${username}.png`}
 						/>
 						<Text
 							variant="body4"
