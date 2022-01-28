@@ -74,7 +74,7 @@ export default function PaginaInicial() {
 						as="form"
 						onSubmit={function(infoEvento) {
 							infoEvento.preventDefault();
-							console.log('Alguém submeteu esse form');
+							router.push('./chat');		
 						}}
 						styleSheet={{
 							display: "flex",
