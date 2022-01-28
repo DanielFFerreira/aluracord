@@ -10,7 +10,7 @@ export default function ChatPage() {
         <Box
             styleSheet={{
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                backgroundColor: appConfig.theme.colors.primary[500],
+                backgroundColor: appConfig.theme.colors.primary[200],
                 backgroundImage: `url(https://kanto.legiaodosherois.com.br/w760-h398-gnw-cfill-q80/wp-content/uploads/2021/08/legiao_m2rhFtcC3Mv5.jpg.jpeg)`,
                 backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
                 color: appConfig.theme.colors.neutrals['000']
@@ -45,6 +45,7 @@ export default function ChatPage() {
                 >
 
                     {/* <MessageList mensagens={[]} /> */}
+										<MessageList />
 
                     <Box
                         as="form"
@@ -92,8 +93,7 @@ function Header() {
     )
 }
 
-function MessageList(props) {
-    console.log('MessageList', props);
+function MessageList() {
     return (
         <Box
             tag="ul"
@@ -108,7 +108,7 @@ function MessageList(props) {
         >
 
             <Text
-                key={mensagem.id}
+                // key={mensagem.id}
                 tag="li"
                 styleSheet={{
                     borderRadius: '5px',
@@ -135,7 +135,7 @@ function MessageList(props) {
                         src={`https://github.com/vanessametonini.png`}
                     />
                     <Text tag="strong">
-                        {mensagem.de}
+                        Olá				
                     </Text>
                     <Text
                         styleSheet={{
@@ -148,7 +148,7 @@ function MessageList(props) {
                         {(new Date().toLocaleDateString())}
                     </Text>
                 </Box>
-                {mensagem.texto}
+                
             </Text>
         </Box>
     )
