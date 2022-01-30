@@ -12,10 +12,20 @@ import { faLevelUp, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 import React from "react";
 import appConfig from "../config.json";
+import { createClient } from '@supabase/supabase-js';
 
 // aplicando chave supabase
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MzUwMjU2OSwiZXhwIjoxOTU5MDc4NTY5fQ.GKcZx1eVsNlsA0zMJH4Z3RJjRfqQGaKIaFmMx4Z0umo';
-const SUPABASE_URL = 'https://wzyqvmbrdabsvnacmwcs.supabase.co';					
+const SUPABASE_URL = 'https://wzyqvmbrdabsvnacmwcs.supabase.co';	
+
+const supabaseCLI = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+supabaseCLI
+.from('mensagens')
+.select('*')
+.then((dados) => {
+	console.log('Dados da consulta: ', dados);
+});
 
 export default function ChatPage() {
 	const [mensagem, setMensagem] = React.useState("");
