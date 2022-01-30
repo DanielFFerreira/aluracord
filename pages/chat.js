@@ -104,6 +104,22 @@ export default function ChatPage() {
 							}}
 						/>
 
+						<Button styleSheet={{
+							marginBottom: '10px',
+							display: 'flex',
+							alignItems: 'center',
+							justifyContent: 'space-between',
+							padding: '12px 20px',
+						}}	
+							variant='secondary'
+							colorVariant="primary"
+							label="Ok"
+							onClick={(event) => {
+								event.preventDefault();
+								handleNovaMensagem(mensagem);
+							}}
+						/>
+
 						<FontAwesomeIcon
 							className="iconUp"
 							icon={faLevelUp}
