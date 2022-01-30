@@ -13,6 +13,10 @@ import { faLevelUp, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import appConfig from "../config.json";
 
+// aplicando chave supabase
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MzUwMjU2OSwiZXhwIjoxOTU5MDc4NTY5fQ.GKcZx1eVsNlsA0zMJH4Z3RJjRfqQGaKIaFmMx4Z0umo';
+const SUPABASE_URL = 'https://wzyqvmbrdabsvnacmwcs.supabase.co';					
+
 export default function ChatPage() {
 	const [mensagem, setMensagem] = React.useState("");
 	const [listaDeMensagens, setListaDeMensagens] = React.useState([]);
@@ -103,7 +107,7 @@ export default function ChatPage() {
 								color: appConfig.theme.colors.neutrals[200],
 							}}
 						/>
-
+						{/* buttom ok */}
 						<Button styleSheet={{
 							marginBottom: '10px',
 							display: 'flex',
@@ -113,7 +117,7 @@ export default function ChatPage() {
 						}}	
 							variant='secondary'
 							colorVariant="primary"
-							label="Ok"
+							label="Enviar"
 							onClick={(event) => {
 								event.preventDefault();
 								handleNovaMensagem(mensagem);
