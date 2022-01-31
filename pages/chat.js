@@ -2,6 +2,7 @@ import { Backdrop, CircularProgress } from '@mui/material';
 import { Box, Text, TextField, Image, Button } from '@skynexui/components';
 import { createClient } from '@supabase/supabase-js';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import appConfig from '../config.json';
 
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MzUwMjU2OSwiZXhwIjoxOTU5MDc4NTY5fQ.GKcZx1eVsNlsA0zMJH4Z3RJjRfqQGaKIaFmMx4Z0umo';
@@ -9,6 +10,9 @@ const SUPABASE_URL = 'https://wzyqvmbrdabsvnacmwcs.supabase.co';
 const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 export default function ChatPage() {
+
+  const router = useRouter();
+  const userLogado = router.query.username;
 
   const [mensagem, setMensagem] = useState('');
   const [listaMensagens, setListaMensagens] = useState([]);
@@ -32,7 +36,7 @@ export default function ChatPage() {
       return;
 
     const mensagem = {
-      de: 'danielfreitasferreira',
+      de: userLogado,
       texto: novaMensagem
     }
 
