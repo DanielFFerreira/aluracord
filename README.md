@@ -1,1 +1,0 @@
-# aluracord-Osvingadores
