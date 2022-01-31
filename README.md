@@ -36,10 +36,3 @@ As animações são muito lindas! 😍
 
 Usada na página 404.
 
-
----
-## Agradecimentos
-
-Sou especialmente grata ao professores dessa Imersão [Mario Souto](https://github.com/omariosouto) e [Paulo Silveira](https://github.com/peas) pelos aprendizados alcançados com esse projeto, e pela oportunidade de exercitar os conhecimentos que ganhei desde Julho/21, quando comecei a aprender React.
-
-Agradeço também ao time da Alura por essa entrega! Admiro demais vocês! 🤩
