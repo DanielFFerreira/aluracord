@@ -68,6 +68,7 @@ export default function ChatPage() {
           maxWidth: '95%',
           maxHeight: '95vh',
           padding: '32px',
+          opacity: '0.95'
         }}
       >
         <Header />

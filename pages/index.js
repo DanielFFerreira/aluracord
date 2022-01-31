@@ -74,6 +74,7 @@ function HomePage() {
               width: { xs: '100%', sm: '50%' }, 
               textAlign: 'center', 
               marginBottom: '32px',
+              opacity: '0.95'
             }}
           >
             <Title tag="h2">Boas vindas de volta!</Title>
