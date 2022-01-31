@@ -32,7 +32,7 @@ export default function ChatPage() {
       return;
 
     const mensagem = {
-      de: 'jholl-b',
+      de: 'danielfreitasferreira',
       texto: novaMensagem
     }
 
@@ -236,7 +236,7 @@ function MessageList(props) {
                     {mensagem.de}
                     
                   </Text>
-                                    
+
                   <Text
                     styleSheet={{
                       fontSize: '10px',
