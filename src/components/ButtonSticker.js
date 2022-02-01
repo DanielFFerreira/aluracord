@@ -1,9 +1,8 @@
-import { Box, Button, Text, Image } from '@skynexui/components';
 import React from 'react';
-
+import { Box, Button, Text, Image } from '@skynexui/components';
 import appConfig from '../../config.json';
 
-export function ButtonSendSticker() {
+export function ButtonSendSticker(props) {
   const [isOpen, setOpenState] = React.useState('');
 
   return (
@@ -28,11 +27,10 @@ export function ButtonSendSticker() {
           backgroundColor: appConfig.theme.colors.neutrals[300],
           filter: isOpen ? 'grayscale(0)' : 'grayscale(1)',
           hover: {
-            // @ts-ignore
             filter: 'grayscale(0)',
-          },
+          }
         }}
-        label='😋'
+        label="😋"
         onClick={() => setOpenState(!isOpen)}
       />
       {isOpen && (
@@ -51,43 +49,44 @@ export function ButtonSendSticker() {
             right: '30px',
             bottom: '30px',
             padding: '16px',
-            boxShadow:
-              'rgba(4, 4, 5, 0.15) 0px 0px 0px 1px, rgba(0, 0, 0, 0.24) 0px 8px 16px 0px',
+            boxShadow: 'rgba(4, 4, 5, 0.15) 0px 0px 0px 1px, rgba(0, 0, 0, 0.24) 0px 8px 16px 0px',
           }}
-          // @ts-ignore
           onClick={() => setOpenState(false)}
         >
           <Text
             styleSheet={{
-              color: appConfig.theme.colors.neutrals['000'],
-              // @ts-ignore
+              color: appConfig.theme.colors.neutrals["000"],
               fontWeight: 'bold',
             }}
           >
             Stickers
           </Text>
           <Box
-            tag='ul'
+            tag="ul"
             styleSheet={{
               display: 'flex',
+              flexWrap: 'wrap',
               justifyContent: 'space-between',
               flex: 1,
               paddingTop: '16px',
               overflow: 'scroll',
-              // @ts-ignore
-              flexWrap: 'wrap',
             }}
           >
             {appConfig.stickers.map((sticker) => (
               <Text
-                // @ts-ignore
                 onClick={() => {
-                  if (Boolean(onStickerClick)) {
-                    onStickerClick(sticker);
+                  // console.log('[DENTRO DO COMPONENTE] Clicou no sticker:', sticker);
+                  if (Boolean(props.onStickerClick)) {
+                    props.onStickerClick(sticker);
                   }
                 }}
-                tag='li'
-                key={sticker}
+                // eslint-disable-next-line react/jsx-no-duplicate-props
+                onClick={() => {
+                  if(Boolean(props.onStickerClick)){
+                  props.onStickerClick(sticker)
+                  }
+                }}
+                tag="li" key={sticker}
                 styleSheet={{
                   width: '50%',
                   borderRadius: '5px',
@@ -97,15 +96,15 @@ export function ButtonSendSticker() {
                   },
                   hover: {
                     backgroundColor: appConfig.theme.colors.neutrals[600],
-                  },
+                  }
                 }}
               >
-                <Image src={sticker} alt='sticker' />
+                <Image alt='sticker' src={sticker} />
               </Text>
             ))}
           </Box>
         </Box>
       )}
     </Box>
-  );
+  )
 }
