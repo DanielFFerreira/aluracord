@@ -4,6 +4,7 @@ import { createClient } from '@supabase/supabase-js';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import appConfig from '../config.json';
+import { ButtonSendSticker } from '../src/components/ButtonSticker';
 
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MzUwMjU2OSwiZXhwIjoxOTU5MDc4NTY5fQ.GKcZx1eVsNlsA0zMJH4Z3RJjRfqQGaKIaFmMx4Z0umo';
 const SUPABASE_URL = 'https://wzyqvmbrdabsvnacmwcs.supabase.co';
@@ -119,6 +120,7 @@ export default function ChatPage() {
                 }
               }}
             />
+            <ButtonSendSticker />
 
             <Button
               label='&#x27a4;'
